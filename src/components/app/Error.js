@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 class Error extends PureComponent {
 
-  static PropTypes = {
+  static propTypes = {
     error: PropTypes.any,
     clearError: PropTypes.func.isRequired
   }
