@@ -3,6 +3,7 @@ import React, { PureComponent } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Header from './Header';
 import Home from './Home';
+import Auth from '../auth/Auth';
 import styles from './App.css';
 
 class App extends PureComponent {
@@ -12,11 +13,12 @@ class App extends PureComponent {
     return (
       <Router>
         <div className={styles.app}>
+          <h5>Hello React!</h5>
           <Header/>
-          <h1>Hello React!</h1>
           <main>
             <Switch>
               <Route exact path="/" component={Home}/>
+              <Route path="/auth" component={Auth}/>
               <Redirect to="/"/>
             </Switch>
           </main>

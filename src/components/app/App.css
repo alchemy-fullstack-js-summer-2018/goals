@@ -1,3 +1,5 @@
-:local(app) {
-    border: 1px solid black;
+:local(.app) {
+    div {
+        border: 1px solid black;
+    }
 }

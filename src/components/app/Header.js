@@ -5,7 +5,9 @@ class Header extends PureComponent {
   render() {
 
     return (
-      <h1>Hello Header!</h1>
+      <div>
+        <h3>Hello Header!</h3>
+      </div>
     );
   }
 }
