@@ -32,11 +32,11 @@ class App extends PureComponent {
           <main>
             {checkedAuth &&
             <Switch>
-              <Route exact path="/" render={() => <h2>Home</h2>}/>
+              <Route exact path="/" render={() => <h2>I am Home</h2>}/>    
               <Route path="/auth" component={Auth}/>
               <PrivateRoute exact path="/goals" component={GoalList}/>
               <PrivateRoute path="/goals/new" component={AddGoal}/>
-              <PrivateRoute path="/goals/id" component={GoalDetail}/>
+              <PrivateRoute path="/goals/:id" component={GoalDetail}/>
               <Redirect to="/"/>
             </Switch>
             }
