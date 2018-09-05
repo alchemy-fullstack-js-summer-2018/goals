@@ -1,18 +1,22 @@
 jest.mock('../../services/api', () => ({
-  signin: jest.fn()
+  signin: jest.fn(),
+  signup: jest.fn(),
+  verify: jest.fn()
 }));
 
-import { signin } from './actions';
-import { signin as signinSvc } from '../../services/api';
-import { USER_AUTH } from './reducers';
+import { signup, signin, logout } from './actions';
+import { USER_AUTH, LOGOUT } from './reducers';
+import { 
+  signup as signupSvc, 
+  signin as signinSvc } from '../../services/api'; 
 
 describe('auth action creators', () => {
 
-  function testauth(name, mockSvc, actionCreator) {
-    it(`cretes ${name} action`, () => {
+  function testAuth(name, mockSvc, actionCreator) {
+    it(`creates ${name} action`, () => {
       const promise = Promise.resolve();
       mockSvc.mockReturnValueOnce(promise);
-
+      
       const credentials = {};
       const { type, payload } = actionCreator(credentials);
       expect(type).toBe(USER_AUTH);
@@ -22,5 +26,11 @@ describe('auth action creators', () => {
     });
   }
 
-  testauth('signup', signinSvc, signin);
+  testAuth('signup', signupSvc, signup);
+  testAuth('signin', signinSvc, signin);
+
+  it('creates logout action', () => {
+    const { type } = logout();
+    expect(type).toBe(LOGOUT);
+  });
 });
