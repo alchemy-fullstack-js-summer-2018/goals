@@ -22,7 +22,7 @@ class Header extends Component {
 
     return (
       <header>
-        <h1>Squad Goals</h1>
+        <h1>Goals</h1>
         <nav>
           <Link to="/">Home</Link>
           &nbsp;
