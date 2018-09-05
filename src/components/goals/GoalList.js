@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getGoalList } from './reducers';
 import { loadGoals } from './actions';
-import GoalItem from './GoalItem';
+import GoalItem from './Goalitem';
 
 class GoalList extends PureComponent {
 
