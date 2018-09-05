@@ -38,7 +38,7 @@ export default class Credentials extends PureComponent {
           </FormControl>
         }
         <FormControl label="email">
-          <input name="email" value={email} onCahnge={this.handleChange}/>
+          <input name="email" value={email} onChange={this.handleChange}/>
         </FormControl>
         <FormControl label="password">
           <input 

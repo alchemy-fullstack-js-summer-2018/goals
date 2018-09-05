@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { Switch, Route, Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signin, signup } from './actions';
 import { getUser } from './reducers';
-import { Switch, Route, Link, Redirect } from 'react-router-dom';
 import Credentials from './Credentials';
 
 class Auth extends PureComponent {
@@ -24,7 +24,7 @@ class Auth extends PureComponent {
     return (
       <section>
         <Switch>
-          <Route path="auth/signin" component={() => (
+          <Route path="/auth/signin" component={() => (
             <div>
               <p>Not yet registered? <Link to="/auth/signup">Sign Up</Link></p>
               <Credentials action="Sign In" submit={signin}/>

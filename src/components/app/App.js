@@ -11,6 +11,7 @@ class App extends PureComponent {
           <Header/>
           <Switch>
             <Route exact path="/" render={() => <h2>I am home</h2>}/>
+            <Route path="/auth" component={Auth}/>
             <Redirect to="/auth" component={Auth}/>
           </Switch>
         </div>
