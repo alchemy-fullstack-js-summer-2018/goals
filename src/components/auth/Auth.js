@@ -26,7 +26,7 @@ class Auth extends PureComponent {
         <Switch>
           <Route path="/auth/signin" component={() => (
             <div>
-              <p>Not yet registered? <Link tp="/auth/signup">Sign Up</Link></p>
+              <p>Not yet registered? <Link to="/auth/signup">Sign Up</Link></p>
               <Credentials action="Sign In" submit={signin}/>
             </div>
           )}/>
