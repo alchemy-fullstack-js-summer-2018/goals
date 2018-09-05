@@ -30,7 +30,7 @@ class Credentials extends PureComponent {
     const { name, email, password, matchPassword } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
-        { allowName &&
+        {allowName &&
           <FormControl label="Name">
             <input name="name" value={name} onChange={this.handleChange}/>
           </FormControl>
@@ -42,7 +42,7 @@ class Credentials extends PureComponent {
           <input name="password" type="password" value={password} onChange={this.handleChange}/>
         </FormControl>
 
-        { allowName &&
+        {allowName &&
           <FormControl label="Retype Password">
             <input name="matchPassword" value={matchPassword} onChange={this.handleChange}></input>
           </FormControl>
