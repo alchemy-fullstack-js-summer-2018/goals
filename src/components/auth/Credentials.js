@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import FormControl from '../shared/FormControl';
-import styles from './Credentials.css';
 
 class Credentials extends PureComponent {
   state = { 
@@ -30,7 +29,7 @@ class Credentials extends PureComponent {
     const { action, allowName = false } = this.props;
     const { name, email, password, matchPassword } = this.state;
     return (
-      <form onSubmit={this.handleSubmit} className={styles.credentials}>
+      <form onSubmit={this.handleSubmit}>
         { allowName &&
           <FormControl label="Name">
             <input name="name" value={name} onChange={this.handleChange}/>
