@@ -1,29 +1,31 @@
 import React, { PureComponent } from 'react';
 import { Switch, Route, Redirect, Link } from 'react-router-dom';
-
+import Credentials from './Credentials';
+// import { signin, signup } from './actions';
 class Auth extends PureComponent {
 
   render() {
 
     return (
       <div>
-        <h5>Hello Auth!</h5>
-        <main>
+        <section>
           <Switch>
-            <Route exact path="/auth/signup" component={() => (
-              <div>
-                <p>No account? <Link to="/auth/signup">Sign Up</Link></p>
-              </div>
-            )}/>
             <Route exact path="/auth/signin" component={() => (
               <div>
-                <p>Already have an account? <Link to="/auth/signup">Sign In</Link></p>
+                <p>No account? <Link to="/auth/signup">Sign Up</Link></p>
+                <Credentials action="Sign In"/>
+              </div>
+            )}/>
+            <Route exact path="/auth/signup" component={() => (
+              <div>
+                <p>Already have an account? <Link to="/auth/signin">Sign In</Link></p>
+                <Credentials action="Sign Up" allowName={true}/>
               </div>
             )}/>
             <Route exact path="/auth/signin"/>
             <Redirect to="/auth/signup"/>
           </Switch>
-        </main>
+        </section>
       </div>
     );
   }

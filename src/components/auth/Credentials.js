@@ -5,8 +5,8 @@ import FormControl from '../shared/FormControl';
 export default class Credentials extends PureComponent {
 
   static propTypes = {
-    submit: PropTypes.func.isRequired,
-    action: PropTypes.string.isRequired,
+    // submit: PropTypes.func.isRequired,
+    // action: PropTypes.string.isRequired,
     allowName: PropTypes.bool
   };
 
@@ -33,16 +33,16 @@ export default class Credentials extends PureComponent {
     return (
       <form>
         { allowName && 
-        <FormControl>
+        <FormControl label="Name">
           <input name="name" value={name} onChange={this.handleChange}/>
         </FormControl>
         }
 
-        <FormControl label="email">
+        <FormControl label="Email">
           <input name="email" value={email} onChange={this.handleChange}/>
         </FormControl>
 
-        <FormControl label="password">
+        <FormControl label="Password">
           <input type="password" name="password" value={password} onChange={this.handleChange}/>
         </FormControl>
 

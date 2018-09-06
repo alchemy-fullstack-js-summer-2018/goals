@@ -22,7 +22,7 @@ class Header extends PureComponent {
           {
             user
               ? <Link to="/" onClick={this.handleLogout}>Logout</Link>
-              : <Link to="/auth">Login</Link>
+              : <Link to="/auth/signin">Login</Link>
           }
         </nav>
       </div>
