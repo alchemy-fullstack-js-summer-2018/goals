@@ -37,15 +37,16 @@ class Credentials extends PureComponent {
       <form onSubmit={this.handleSubmit}>
 
         <FormControl label="name">
-          <input name="name" value={name} onChange={this.handleChange}></input>
+          <input name="name" value={name} onChange={this.handleChange} required></input>
         </FormControl>
         
         <FormControl label="email">
-          <input name="email" value={email} onChange={this.handleChange}></input>
+          <input name="email" type="email" pattern="/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}
+  [a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/" value={email} onChange={this.handleChange} required></input>
         </FormControl>
 
         <FormControl label="password">
-          <input name="password" typpe="password" value={password} onChange={this.handleChange}></input>
+          <input name="password" type="password" value={password} onChange={this.handleChange} required></input>
         </FormControl>
 
         <FormControl>
