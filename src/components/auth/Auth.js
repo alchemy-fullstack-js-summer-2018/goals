@@ -1,7 +1,9 @@
 import React, { PureComponent } from 'react';
 import { Switch, Route, Redirect, Link } from 'react-router-dom';
 import Credentials from './Credentials';
-// import { signin, signup } from './actions';
+import { connect } from 'react-redux';
+import { getUser } from './reducers';
+import { signin, signup } from './actions';
 class Auth extends PureComponent {
 
   render() {
@@ -13,13 +15,13 @@ class Auth extends PureComponent {
             <Route exact path="/auth/signin" component={() => (
               <div>
                 <p>No account? <Link to="/auth/signup">Sign Up</Link></p>
-                <Credentials action="Sign In"/>
+                <Credentials action="Sign In" submit={signin}/>
               </div>
             )}/>
             <Route exact path="/auth/signup" component={() => (
               <div>
                 <p>Already have an account? <Link to="/auth/signin">Sign In</Link></p>
-                <Credentials action="Sign Up" allowName={true}/>
+                <Credentials action="Sign Up" submit={signup} allowName={true}/>
               </div>
             )}/>
             <Route exact path="/auth/signin"/>
@@ -31,4 +33,9 @@ class Auth extends PureComponent {
   }
 }
 
-export default Auth;
+export default connect(
+  state => ({
+    user: getUser(state)
+  }),
+  { signup, signin }
+)(Auth);
