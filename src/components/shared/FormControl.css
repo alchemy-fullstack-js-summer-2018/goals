@@ -1,0 +1,6 @@
+:local(.form-control) {
+
+  margin: 15px 0;
+
+  border: solid 2px steelblue;
+}
