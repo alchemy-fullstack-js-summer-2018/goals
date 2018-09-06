@@ -27,4 +27,9 @@ describe('Auth action creators', () => {
 
   testAuth('signup', signupSvc, signup);
   testAuth('signin', signinSvc, signin);
+
+  it('Creates logout action', () => {
+    const { type } = logout();
+    expect(type).toBe(LOGOUT);
+  });
 });

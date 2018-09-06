@@ -26,3 +26,5 @@ export const signin = credentials => ({
   type: USER_AUTH,
   payload: signinApi(credentials)
 });
+
+export const logout = () => ({ type: LOGOUT });
