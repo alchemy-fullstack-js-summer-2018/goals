@@ -15,8 +15,10 @@ export function loading(state = false, { type }) {
 }
 
 const initialErrorState = null;
-export function error(state = initialErrorState, { type }) {
+export function error(state = initialErrorState, { type, payload }) {
   switch(type) {
+    case ERROR:
+      return payload;
     default:
       return state;
   }
