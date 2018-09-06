@@ -1,13 +1,17 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import promiseMiddleware from './promise-middleware';
 import thunk from 'redux-thunk';
-import { user } from '../components/auth/reducers';
+import { user, checkedAuth } from '../components/auth/reducers';
 import { loading, error } from '../components/app/reducers';
+import { goalsById, goalList } from '../components/goals/reducers';
 
 const rootReducer = combineReducers({
   user,
   loading,
-  error
+  error,
+  checkedAuth,
+  goalsById,
+  goalList
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

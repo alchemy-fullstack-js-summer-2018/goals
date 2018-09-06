@@ -32,7 +32,7 @@ function request(url, options = {}, data) {
   if(data) options.body = JSON.stringify(data);
   if(token) {
     if(!options.headers) options.headers = {};
-    options.header.Authorization = token;
+    options.headers.Authorization = token;
   }
 
   return fetch(url, options)

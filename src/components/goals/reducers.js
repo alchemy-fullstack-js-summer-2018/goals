@@ -1,6 +1,7 @@
 import { LOGOUT } from '../auth/reducers';
 
 export const GOALS_LOAD = 'GOALS_LOAD';
+export const GOAL_ADD = 'GOAL_ADD';
 export const GOAL_LOAD = 'GOAL_LOAD';
 export const LOAD_START = 'LOAD_START';
 export const LOAD_END = 'LOAD_END';
@@ -27,6 +28,8 @@ export function goalsById(state = {}, { type, payload }) {
         ...state,
         [payload._id]: payload
       };
+    case GOAL_ADD:
+      return [...state, payload];
     case LOGOUT:
       return {};
     default:
