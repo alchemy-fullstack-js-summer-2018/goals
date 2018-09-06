@@ -12,3 +12,6 @@ export const verifyUser = token => get(`${AUTH_URL}/verify`, {
     Authorization: token
   }
 });
+
+export const loadAllGoals = () => get(GOALS_URL);
+export const loadGoal = id => get(`${GOALS_URL}/${id}`);

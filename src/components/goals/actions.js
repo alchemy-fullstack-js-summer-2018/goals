@@ -1,11 +1,8 @@
-import {
-  GOALS_LOAD,
-  GOALS_ADD
-} from '.reducers';
-import { loadGoals, addGoal, updateGoal } from '..'
+import { GOALS_LOAD } from './reducers';
+import { loadAllGoals } from '../../services/api';
 
 
 export const load = () => ({
   type: GOALS_LOAD,
-  payload: 
-})
+  payload: loadAllGoals()
+});
