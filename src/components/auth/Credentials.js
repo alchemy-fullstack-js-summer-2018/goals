@@ -23,6 +23,8 @@ export default class Credentials extends PureComponent {
   handleSubmit = event => {
     event.preventDefault();
     this.props.submit(this.state)
+      // nothing to do except catch error
+      // so runtime doesn't think unhandled
       .catch(() => {});
   }
 
@@ -31,18 +33,18 @@ export default class Credentials extends PureComponent {
     const { name, email, password } = this.state;
 
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         { allowName && 
-        <FormControl>
+        <FormControl label="Name">
           <input name="name" value={name} onChange={this.handleChange}/>
         </FormControl>
         }
 
-        <FormControl label="email">
+        <FormControl label="Email">
           <input name="email" value={email} onChange={this.handleChange}/>
         </FormControl>
 
-        <FormControl label="password">
+        <FormControl label="Password">
           <input type="password" name="password" value={password} onChange={this.handleChange}/>
         </FormControl>
 

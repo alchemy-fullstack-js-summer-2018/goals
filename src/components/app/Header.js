@@ -1,11 +1,18 @@
 import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
+import { connect } from 'react-redux';
+import { getUser } from '../auth/reducers';
+import { logout } from '../auth/actions';
 class Header extends PureComponent {
 
   static propTypes = {
-    user: PropTypes.object
+    user: PropTypes.object,
+    logout: PropTypes.func.isRequired
+  }
+
+  handleLogout = () => {
+    this.props.logout();
   }
 
   render() {
@@ -22,7 +29,7 @@ class Header extends PureComponent {
           {
             user
               ? <Link to="/" onClick={this.handleLogout}>Logout</Link>
-              : <Link to="/auth">Login</Link>
+              : <Link to="/auth/signin">Login</Link>
           }
         </nav>
       </div>
@@ -30,4 +37,9 @@ class Header extends PureComponent {
   }
 }
 
-export default Header;
+export default connect(
+  state => ({
+    user: getUser(state)
+  }),
+  { logout }
+)(Header);
