@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -31,26 +30,6 @@ class Home extends PureComponent {
         <WithRouterDisplay>
           <span>{name}</span>
         </WithRouterDisplay>
-
-        <Tabs>
-          <TabList>
-            <Tab>Title 1</Tab>
-            <Tab>Title 2</Tab>
-            <Tab>Title 3</Tab>
-          </TabList>
-
-          <TabPanel>
-            <h2>Any content 1</h2>
-          </TabPanel>
-
-          <TabPanel>
-            <h2>Any content 2</h2>
-          </TabPanel>
-
-          <TabPanel>
-            <h2>New Tab</h2>
-          </TabPanel>
-        </Tabs>
       </section>
     );
   }

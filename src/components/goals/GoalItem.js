@@ -15,7 +15,7 @@ class GoalItem extends PureComponent {
 
     return (
       <li>
-        <Link to={`/goals/${goal._id}`}></Link>
+        <Link to={`/goals/${goal._id}`}>{goal.name}</Link>
       </li>
     ); 
   }
@@ -25,4 +25,5 @@ export default connect(
   (state, { id }) => ({
     goal: getGoalById(state, id)
   }),
+  null
 )(GoalItem);

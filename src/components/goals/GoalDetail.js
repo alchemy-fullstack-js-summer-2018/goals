@@ -25,7 +25,7 @@ class GoalDetail extends PureComponent {
 
     return (
       <article>
-        <h3>{goal.name} the {goal.option}</h3>
+        <h3>{goal.name} the {goal.type}</h3>
         <Switch>
           <Route path={`${url}/paragraph`} render={() => {
             return <ParagraphView options={goal.favoriteOptions}/>;
@@ -42,7 +42,7 @@ class GoalDetail extends PureComponent {
 }
 
 const ParagraphView = ({ options }) => (
-  <p>Favorite Optioons are {options.join(', ')}</p>
+  <p>Favorite Options are {options.join(', ')}</p>
 );
 ParagraphView.propTypes = { options: PropTypes.array };
 
