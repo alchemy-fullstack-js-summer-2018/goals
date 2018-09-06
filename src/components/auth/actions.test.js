@@ -10,7 +10,7 @@ import {
   signup as signupSvc,
   signup as signinSvc } from '../../services/api';
 
-xdescribe('Auth action creators', () => {
+describe('Auth action creators', () => {
 
   function testAuth(name, mockSvc, actionCreator) {
     it(`Creates ${name} action`, () => {
@@ -18,12 +18,13 @@ xdescribe('Auth action creators', () => {
       mockSvc.mockReturnValueOnce(promise);
 
       const credentials = {};
-      const { type, payload } = actionCreator(credentials);
+      const { type } = actionCreator(credentials);
       expect(type).toBe(USER_AUTH);
-      expect(payload).toBe(promise);
       expect(mockSvc.mock.calls.length).toBe(1);
-      expect(mockSvc.mock.calls[0][0]).toBe(credentials);
+      expect(mockSvc.mock.calls[0][0]).toEqual(credentials);
     });
-
   }
+
+  testAuth('signup', signupSvc, signup);
+  testAuth('signin', signinSvc, signin);
 });
