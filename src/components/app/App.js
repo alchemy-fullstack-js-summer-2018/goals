@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Header from './Header';
 import Home from './Home';
-import Auth from '../auth/auth';
+import Auth from '../auth/Auth';
 import styles from './App.css';
 
 class App extends Component {
