@@ -1,18 +1,23 @@
 import React, { PureComponent } from 'react';
-import { Switch, Route, Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Switch, Route, Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { signin, signup } from './actions';
+import { getUser } from './reducers';
 import Credentials from './Credentials';
 // import styles from './Auth.css';
 
 class Auth extends PureComponent {
 
   static propTypes = {
+    user: PropTypes.object,
     signin: PropTypes.func.isRequired,
     signup: PropTypes.func.isRequired
   };
     
   render() { 
     const { signin, signup } = this.props;
+    //TODO: redirect, user, location
 
     return (
       <section>
@@ -37,4 +42,9 @@ class Auth extends PureComponent {
   }
 }
  
-export default Auth;
+export default connect(
+  state => ({
+    user: getUser(state)
+  }),
+  { signin, signup }
+)(Auth);
