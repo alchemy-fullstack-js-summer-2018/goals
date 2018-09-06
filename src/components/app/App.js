@@ -6,10 +6,10 @@ import { connect } from 'react-redux';
 import { tryLoadUser } from '../auth/auth-actions';
 import { getCheckedAuth } from '../auth/auth-reducers';
 import Header from './Header';
+import Home from './Home';
 import Auth from '../auth/Auth';
 import GoalList from '../goals/GoalList';
-import GoalDetail from '../goals/GoalDetail';
-import AddGoal from '../goals/AddGoal';
+import Users from '../users/Users';
 import styles from './App.css';
 
 class App extends PureComponent {
@@ -33,12 +33,10 @@ class App extends PureComponent {
           <main className={styles.app}>
             { checkedAuth && 
             <Switch>
-              <Route exact path="/" render={() => <h2>Goals: Home Page</h2>}/>
+              <Route exact path="/" component={Home}/>
               <Route path="/auth" component={Auth}/>
+              <PrivateRoute exact path="/users" component={Users}/>
               <PrivateRoute exact path="/goals" component={GoalList}/>
-              <PrivateRoute path="/goals/new" component={AddGoal}/>
-              
-              <PrivateRoute path="/goals/:id" component={GoalDetail}/>
 
               <Redirect to="/"/>
             </Switch>
