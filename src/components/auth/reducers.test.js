@@ -18,4 +18,9 @@ describe('User reducer', () => {
     expect(state).toBe(null);
   });
 
+  it('Gets user from state', () => {
+    const user = {};
+    expect(getUser({ user })).toBe(user);
+  });
+
 });
