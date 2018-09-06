@@ -1,8 +1,20 @@
+jest.mock('../../services/goalsApi', () => ({
+  signin: jest.fn(),
+  signup: jest.fn()
+}));
 
+import { signin, signup } from './actions';
+import { USER_AUTH } from './reducers';
+import {
+  signin as signinSvc,
+  signup as signupSvc
+} from '../../services/goalsApi';
 
-describe('user actions', () => {
+describe('user action creators', () => {
 
-  it('testing', () => {
-    
-  });
+  function testAuth(name, mockSvc, actionCreator) {
+    it(`creates ${name} action`, () => {
+      
+    });
+  }
 });
