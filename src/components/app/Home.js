@@ -1,4 +1,5 @@
-import React, { Component, PureComponent } from 'react';
+//import React, { Component, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -23,7 +24,7 @@ class Home extends PureComponent {
           name: <input name="name" value={name} onChange={this.handleChange}/>
         </p>
         <p>
-          color: <imput name="description" value={description} onCHnage={this.handleChange}/>
+          color: <input name="description" value={description} onChange={this.handleChange}/>
         </p>
 
         <ChildComponent name={name}/>
