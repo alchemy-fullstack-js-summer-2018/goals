@@ -19,6 +19,8 @@ export function error(state = initialErrorState, { type, payload }) {
   switch(type) {
     case ERROR:
       return payload;
+    case LOAD_START:
+      return initialErrorState;
     default:
       return state;
   }
