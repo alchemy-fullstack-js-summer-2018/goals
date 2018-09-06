@@ -8,7 +8,10 @@ export const signin = credentials => post(`${AUTH_URL}/signin`, credentials);
 export const signup = credentials => post(`${AUTH_URL}/signup`, credentials);
 
 export const getUserGoals = () => get(GOALS_URL);
-export const postGoal = data => post(GOALS_URL);
+export const postGoal = data => {
+  console.log(data);
+  return post(GOALS_URL, data);
+};
 
 
 export const verifyUser = token => get(`${AUTH_URL}/verify`, {

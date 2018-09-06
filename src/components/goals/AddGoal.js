@@ -1,36 +1,40 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import FormControl from '../shared/FormControl';
+import { addGoal } from '../goals/actions';
+
 
 class AddGoal extends PureComponent {
 
   state = {
-    goal: ''
+    title: ''
   };
 
   static propTypes = {
-    onSubmit: PropTypes.func.isRequired
+    addGoal: PropTypes.func
   };
 
   handleChange = ({ target }) => {
     this.setState({ [target.name]: target.value });
-  }
+  };
 
-  handleSubmit = event => {
-    const { onSubmit } = this.props;
+
+  handleAdd = event => {
     event.preventDefault();
-    if(!this.state.goal) return;
-    onSubmit(this.state);
-  }
+    const { addGoal } = this.props;
+    addGoal(this.state);
+    this.setState({ title: '' });
+  };
 
   render() { 
-    const { goal } = this.state;
+    const { title } = this.state;
     return (
       <section>
         <h2>Add a new goal!</h2>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleAdd}>
           <FormControl label="name">
-            <input name="goal" value={goal} onChange={this.handleChange}/>
+            <input name="title" value={title} onChange={this.handleChange}/>
           </FormControl>
           <button>Add</button>
         </form>
@@ -39,4 +43,7 @@ class AddGoal extends PureComponent {
   }
 }
  
-export default AddGoal;
+export default connect(
+  null,
+  { addGoal }
+)(AddGoal);

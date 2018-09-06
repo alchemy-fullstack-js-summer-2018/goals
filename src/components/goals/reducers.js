@@ -13,7 +13,7 @@ export const getGoalById = (state, id) => getGoalsById(state)[id];
 
 export const getGoal = state => state.goal;
 
-export function goalsById(state = {}, { type, payload }) {
+export function goalsById(state = [], { type, payload }) {
   switch(type) {
     case GOALS_LOAD:
       return payload.reduce((map, goal) => {
@@ -28,8 +28,8 @@ export function goalsById(state = {}, { type, payload }) {
         ...state,
         [payload._id]: payload
       };
-    case GOAL_ADD:
-      return [...state, payload];
+    // case GOAL_ADD:
+    //   return [...state, payload];
     case LOGOUT:
       return {};
     default:
@@ -40,7 +40,9 @@ export function goalsById(state = {}, { type, payload }) {
 export function goalList(state = [], { type, payload }) {
   switch(type) {
     case GOALS_LOAD:
-      return payload.map(goal => goal._id);
+      return payload;
+    case GOAL_ADD:
+      return [...state, payload];
     case LOGOUT:
       return [];
     default:

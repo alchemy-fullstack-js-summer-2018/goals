@@ -1,12 +1,14 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { getGoalList } from './reducers';
 import { loadGoals } from './actions';
-import GoalItem from './GoalItem';
+import Goal from './Goal';
+import AddGoal from './AddGoal';
 
-class GoalList extends PureComponent {
+class Goals extends PureComponent {
+
   static propTypes = {
     loadGoals: PropTypes.func.isRequired,
     goals: PropTypes.array
@@ -18,11 +20,13 @@ class GoalList extends PureComponent {
 
   render() {
     const { goals } = this.props; 
+    if(!goals) return null;
     return (
       <section>
-        <Link to="/goals/new">Add a new goal</Link>
+        <h2>Goals</h2>
+        <AddGoal/>
         <ul>
-          {goals.map(id => <GoalItem key={id} id={id}/>)}
+          {goals.map(goal => <Goal key={goal._id} goal={goal}/>)}
         </ul>
       </section>
     );
@@ -32,4 +36,4 @@ class GoalList extends PureComponent {
 export default connect(
   state => ({ goals: getGoalList(state) }),
   { loadGoals }
-)(GoalList);
+)(Goals);
