@@ -1,6 +1,6 @@
-import { USER_AUTH, LOGOUT, CHECKED_AUTH } from './reducers';
-import { verifyUser } from '../../services/goalsApi';
-import { getStoredUser, clearStoredUser } from '../../services/request';
+import { USER_AUTH/* , LOGOUT, CHECKED_AUTH */ } from './reducers';
+// import { verifyUser } from '../../services/goalsApi';
+// import { getStoredUser, clearStoredUser } from '../../services/request';
 
 import {
   signin as signinApi,
