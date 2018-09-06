@@ -9,8 +9,7 @@ const rootReducer = combineReducers({
   loading,
   user,
   checkedAuth,
-  petList,
-  petsById
+  goals
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
