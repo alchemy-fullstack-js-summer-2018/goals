@@ -1,4 +1,4 @@
-import { USER_AUTH/* , LOGOUT, CHECKED_AUTH */ } from './reducers';
+import { USER_AUTH, LOGOUT/* , CHECKED_AUTH */ } from './reducers';
 // import { verifyUser } from '../../services/goalsApi';
 // import { getStoredUser, clearStoredUser } from '../../services/request';
 
@@ -14,3 +14,7 @@ const makeAuth = api => credentials => ({
 
 export const signin = makeAuth(signinApi);
 export const signup = makeAuth(signupApi);
+
+export const logout = () => ({
+  type: LOGOUT
+});

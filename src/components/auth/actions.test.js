@@ -3,8 +3,8 @@ jest.mock('../../services/goalsApi', () => ({
   signup: jest.fn()
 }));
 
-import { signin, signup } from './actions';
-import { USER_AUTH } from './reducers';
+import { signin, signup, logout } from './actions';
+import { USER_AUTH, LOGOUT } from './reducers';
 import {
   signin as signinSvc,
   signup as signupSvc
@@ -28,4 +28,9 @@ describe('user action creators', () => {
 
   testAuth('signup', signupSvc, signup);
   testAuth('signin', signinSvc, signin);
+
+  it('creates logout action', () => {
+    const { type } = logout();
+    expect(type).toBe(LOGOUT);
+  });
 });
