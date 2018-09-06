@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-// import styles from './Credentials.css';
 import FormControl from '../shared/FormControl';
+// import styles from './Credentials.css';
 // TODO: allowName, Form CSS
 
 class Credentials extends PureComponent {
@@ -23,6 +23,7 @@ class Credentials extends PureComponent {
   };
 
   handleSubmit = e => {
+    console.log('HERE');
     e.preventDefault();
     this.props.submit(this.state)
       .catch(() => {});
