@@ -13,6 +13,9 @@ describe('User reducer', () => {
     expect(state).toEqual(data);
   });
 
+  it('Clears a user on logout', () => {
+    const state = user({}, { type: LOGOUT });
+    expect(state).toBe(null);
+  });
 
-  
 });
