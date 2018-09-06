@@ -15,3 +15,12 @@ export function user(state = null, { type, payload }) {
       return state;
   }
 }
+
+export function checkedAuth(state = false, { type }) {
+  switch(type) {
+    case CHECKED_AUTH:
+      return true;
+    default:
+      return state;
+  }
+}
