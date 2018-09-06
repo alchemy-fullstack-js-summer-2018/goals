@@ -5,7 +5,7 @@ jest.mock('../../services/api', () => ({
 
 import { load, add } from './actions';
 import { GOALS_LOAD, GOALS_ADD, GOALS_UPDATE } from './reducers';
-import { loadAllGoals, loadGoal } from '../../services/api';
+import { loadAllGoals } from '../../services/api';
 
 describe('Goals action creators', () => {
 
