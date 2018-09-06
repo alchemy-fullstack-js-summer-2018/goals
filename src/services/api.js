@@ -1,4 +1,4 @@
-import { get, post } from './request';
+import { get, post } from './api';
 
 const URL = '/api';
 const GOALS_URL = `${URL}/me/goals`;
