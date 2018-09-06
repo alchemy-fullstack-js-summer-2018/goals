@@ -5,8 +5,8 @@ import FormControl from '../shared/FormControl';
 export default class Credentials extends PureComponent {
 
   static propTypes = {
-    // submit: PropTypes.func.isRequired,
-    // action: PropTypes.string.isRequired,
+    submit: PropTypes.func.isRequired,
+    action: PropTypes.string.isRequired,
     allowName: PropTypes.bool
   };
 
@@ -23,6 +23,8 @@ export default class Credentials extends PureComponent {
   handleSubmit = event => {
     event.preventDefault();
     this.props.submit(this.state)
+      // nothing to do except catch error
+      // so runtime doesn't think unhandled
       .catch(() => {});
   }
 
@@ -31,7 +33,7 @@ export default class Credentials extends PureComponent {
     const { name, email, password } = this.state;
 
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         { allowName && 
         <FormControl label="Name">
           <input name="name" value={name} onChange={this.handleChange}/>
