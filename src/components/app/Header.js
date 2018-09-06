@@ -35,6 +35,7 @@ class Header extends Component {
             </li>
           </ul>
         </nav>
+        {user && <span>Welcome {user.name}!</span>}
       </div>
     );
   }
