@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 import { signin, signup } from './actions';
 import { getUser } from './reducers';
 import Credentials from './Credentials';
-// import styles from './Auth.css';
+import styles from './Auth.css';
+// TODO: how do you target child link for styling signup/signin?
 
 class Auth extends PureComponent {
 
@@ -20,7 +21,7 @@ class Auth extends PureComponent {
     //TODO: redirect, user, location
 
     return (
-      <section>
+      <section className={styles.auth}>
         <h2>Auth Component</h2>
         <Switch>
           <Route path="/auth/signin" render={() => (

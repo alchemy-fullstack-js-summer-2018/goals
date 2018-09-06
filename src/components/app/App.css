@@ -20,4 +20,19 @@
     margin: 0% 4% 0% 4%;
   }
 
+  a {
+    text-decoration: none;
+    color: #2c3e50;
+    font-weight: bold;
+  }
+
+  a:hover {
+    text-decoration: underline;
+    color: white;
+  }
+
+  a:active {
+    color: rgb(72, 6, 72);
+  }
+
 }

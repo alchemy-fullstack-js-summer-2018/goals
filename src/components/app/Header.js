@@ -26,7 +26,7 @@ class Header extends Component {
         <nav id="nav-ul">
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">Home</Link>&nbsp;
               {
                 user
                   ? <Link to="/" onClick={this.handleLogout}>Logout</Link>

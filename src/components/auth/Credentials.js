@@ -1,8 +1,10 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import FormControl from '../shared/FormControl';
-// import styles from './Credentials.css';
+import styles from './Credentials.css';
 // TODO: allowName, Form CSS
+// TODO: pattern="/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}
+// [a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/" 
 
 class Credentials extends PureComponent {
 
@@ -34,15 +36,14 @@ class Credentials extends PureComponent {
     const { name, email, password } = this.state;
 
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className={styles.credentials}>
 
         <FormControl label="name">
           <input name="name" value={name} onChange={this.handleChange} required></input>
         </FormControl>
         
         <FormControl label="email">
-          <input name="email" type="email" pattern="/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}
-  [a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/" value={email} onChange={this.handleChange} required></input>
+          <input name="email" type="email" value={email} onChange={this.handleChange} required></input>
         </FormControl>
 
         <FormControl label="password">

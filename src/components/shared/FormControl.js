@@ -15,7 +15,7 @@ class FormControl extends PureComponent {
     return (
       <div className={styles['form-control']}>
         {label && <label>{label}:</label>}
-        <div>
+        <div className="control">
           {children}
         </div>
       </div>
