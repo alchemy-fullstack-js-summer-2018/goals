@@ -2,6 +2,7 @@ import {
   goals,
   GOALS_LOAD,
   GOALS_ADD,
+  GOALS_UPDATE
 } from './reducers';
 
 describe('Goals reducers', () => {
@@ -31,9 +32,28 @@ describe('Goals reducers', () => {
       type: GOALS_ADD,
       payload: goal3
     });
-    
+
     expect(state).toEqual([goal1, goal2, goal3]);
 
+  });
+
+  it('Updates a goal', () => {
+    const goal1 = { _id: 1, name: 'Profit', description: '$$$', completed: false };
+    const goal2 = { _id: 2, name: 'Learn', description: 'Get edumacated', completed: true };
+    const goal3 = { _id: 3, name: 'Mentor', description: 'Edumucate peoples', completed: false };
+
+    const updated = { _id: 2, name: 'Learn', description: 'Read about new tech', completed: true };
+
+    const state = goals([goal1, goal2, goal3], {
+      type: GOALS_UPDATE,
+      payload: updated
+    });
+
+    expect(state).toEqual([
+      goal1,
+      updated,
+      goal3
+    ]);
   });
 
 
