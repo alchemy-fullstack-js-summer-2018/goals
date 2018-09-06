@@ -1,5 +1,5 @@
-import { GOALS_LOAD, GOAL_LOAD, GOAL_ADD } from './reducers';
-import { getUserGoals, getGoal, postGoal } from '../../services/api';
+import { GOALS_LOAD, GOAL_LOAD, GOAL_ADD, GOAL_UPDATE } from './reducers';
+import { getUserGoals, getGoal, postGoal, updateGoal as updateGoalApi } from '../../services/api';
 import { getGoalList, getGoalById } from './reducers';
 
 export const loadGoals = () => (dispatch, getState) => {
@@ -29,7 +29,14 @@ export const loadGoal = id => (dispatch, getState) => {
   });
 };
 
-export const clearGoal = () => ({
-  type: GOAL_LOAD,
-  payload: null
-});
+export const updateGoal = data => {
+  return {
+    type: GOAL_UPDATE,
+    payload: updateGoalApi(data)
+  };
+};
+
+// export const clearGoal = () => ({
+//   type: GOAL_LOAD,
+//   payload: null
+// });
