@@ -1,4 +1,4 @@
-import { user, USER_AUTH } from './reducers';
+import { user, USER_AUTH, LOGOUT } from './reducers';
 
 describe('user reducers', () => {
 
@@ -14,5 +14,12 @@ describe('user reducers', () => {
       payload: data
     });
     expect(state).toBe(data);
+  });
+
+  it('clears a user on logout', () => {
+    const state = user({}, {
+      type: LOGOUT
+    });
+    expect(state).toBe(null);
   });
 });
