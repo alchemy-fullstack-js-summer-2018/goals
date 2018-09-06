@@ -10,5 +10,16 @@ describe('Goals reducers', () => {
     expect(state).toEqual([]);
   });
 
+  it('Loads goals', () => {
+    const payload = [{}, {}, {}];
+
+    const state = goalsById([], {
+      type: GOALS_LOAD,
+      payload
+    });
+
+    expect(state).toBe(payload);
+  });
+
 
 });
