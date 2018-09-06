@@ -22,7 +22,7 @@ class GoalList extends PureComponent {
 
     return (
       <section>
-        <Link to="/goal/new">Add a New Goal</Link>
+        <Link to="/goals/new">Add a New Goal</Link>
         <ul>
           {goals.map(id => <GoalItem key={id} id={id}/>)}
         </ul>
@@ -32,6 +32,6 @@ class GoalList extends PureComponent {
 }
 
 export default connect(
-  state => ({ pets: getGoalList(state) }),
+  state => ({ goals: getGoalList(state) }),
   { loadGoals }
 )(GoalList);

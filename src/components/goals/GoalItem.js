@@ -15,7 +15,7 @@ class GoalItem extends PureComponent {
 
       return (
         <li>
-          <Link to={`/goals/$${goal._id}`}>{goal.name}</Link>
+          <Link to={`/goal/$${goal._id}`}>{goal.name}</Link>
         </li>
       );
     }
