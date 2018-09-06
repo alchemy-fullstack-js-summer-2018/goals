@@ -15,4 +15,15 @@ describe('user reducer', () => {
     expect(state).toEqual(data);
   });
 
+  it('clears user on logout', () => {
+    const state = user({}, { type: LOGOUT });
+    expect(state).toBe(null);
+  });
+
+  it('gets user from state', () => {
+    const user = {};
+    expect(getUser({ user })).toBe(user);
+  });
+  
 });
+
