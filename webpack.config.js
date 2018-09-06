@@ -4,7 +4,7 @@ const CleanPlugin = require('clean-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
-const buildDir = 'build';
+const buildDir = 'docs';
 const path = resolve(__dirname, buildDir);
 
 module.exports = {

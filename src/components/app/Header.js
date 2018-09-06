@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { getUser } from '../auth/reducers';
 import { logout } from '../auth/actions';
 import PropTypes from 'prop-types';
-import Error from './Error';
+// import Error from './Error';
 import styles from './Header.css';
 
 class Header extends Component {
@@ -35,7 +35,6 @@ class Header extends Component {
             </li>
           </ul>
         </nav>
-        <Error/>
       </div>
     );
   }
