@@ -6,15 +6,13 @@ import {
   signin as signinApi 
 } from '../../services/goalsApi';
 
-export const signup = credentials => ({
+const makeAuth = api => credentials => ({
   type: USER_AUTH,
-  payload: signupApi(credentials)
+  payload: api(credentials)
 });
 
-export const signin = credentials => ({
-  type: USER_AUTH,
-  payload: signinApi(credentials)
-});
+export const signup = makeAuth(signupApi);
+export const signin = makeAuth(signinApi);
 
 export const logout = () => ({ type: LOGOUT });
 
