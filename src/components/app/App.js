@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import PrivateRoute from './PrivateRoute';
 import Header from './Header';
 import Home from './Home';
 import Auth from '../auth/Auth';
@@ -33,7 +34,7 @@ class App extends PureComponent {
             <Switch>
               <Route exact path="/" component={Home}/>
               <Route path="/auth" component={Auth}/>
-              <Route path="/goals" component={Goals}/>
+              <PrivateRoute path="/goals" component={Goals}/>
               <Redirect to="/"/>
             </Switch>
           </main>
