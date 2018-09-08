@@ -1,5 +1,5 @@
 import {
-  goalsById,
+  goals,
   GOALS_LOAD,
   GOALS_ADD,
   GOALS_UPDATE
@@ -8,14 +8,14 @@ import {
 describe('Goals reducers', () => {
   
   it('Initialize to empty array', () => {
-    const state = goalsById(undefined, {});
+    const state = goals(undefined, {});
     expect(state).toEqual([]);
   });
 
   it('Loads goals', () => {
     const payload = [{}, {}, {}];
 
-    const state = goalsById([], {
+    const state = goals([], {
       type: GOALS_LOAD,
       payload
     });
@@ -28,7 +28,7 @@ describe('Goals reducers', () => {
     const goal2 = { name: 'Learn', description: 'Get edumacated', completed: true };
     const goal3 = { name: 'Mentor', description: 'Edumucate peoples', completed: false };
 
-    const state = goalsById([goal1, goal2], {
+    const state = goals([goal1, goal2], {
       type: GOALS_ADD,
       payload: goal3
     });
@@ -44,7 +44,7 @@ describe('Goals reducers', () => {
 
     const updated = { _id: 2, name: 'Learn', description: 'Read about new tech', completed: true };
 
-    const state = goalsById([goal1, goal2, goal3], {
+    const state = goals([goal1, goal2, goal3], {
       type: GOALS_UPDATE,
       payload: updated
     });

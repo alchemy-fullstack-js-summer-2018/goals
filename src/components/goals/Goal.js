@@ -10,7 +10,7 @@ export default class Goal extends PureComponent {
     const { goal } = this.props;
     return (
       <li>
-        Hello {goal.name}
+        <strong>{goal.name}</strong>: {goal.description}
       </li>
     );
   }

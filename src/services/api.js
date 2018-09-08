@@ -16,3 +16,6 @@ export const verifyUser = token => {
 };
 
 export const getGoals = () => get(GOALS_URL);
+export const postGoal = data => post(GOALS_URL, data);
+export const getGoal = id => get(`${GOALS_URL}/${id}`);
+export const deleteShip = id => del(`${GOALS_URL}/${id}`);
