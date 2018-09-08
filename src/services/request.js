@@ -10,12 +10,10 @@ store.subscribe(() => {
   const user = getUser(store.getState());
   const nextToken = user ? (user.token || '') : '';
   if(nextToken === token) return;
-
+  
   token = nextToken;
   token ? storage.setItem(key, JSON.stringify(user)) : clearStoredUser();
 });
-
-
 
 export const getStoredUser = () => {
   const json = storage.getItem(key);
@@ -35,7 +33,6 @@ function request(url, options = {}, data) {
     if(!options.headers) options.headers = {};
     options.headers.Authorization = token;
   }
-
   return fetch(url, options)
     .then(response => [response.ok, response.json()])
     .then(([ok, json]) => {

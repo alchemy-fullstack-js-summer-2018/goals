@@ -1,8 +1,10 @@
 import { GOALS_LOAD } from './reducers';
-import { loadAllGoals } from '../../services/api';
+import { getGoals } from '../../services/api';
 
 
-export const load = () => ({
-  type: GOALS_LOAD,
-  payload: loadAllGoals()
-});
+export const loadGoals = () => {
+  return {
+    type: GOALS_LOAD,
+    payload: getGoals()
+  };
+};

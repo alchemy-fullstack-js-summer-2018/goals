@@ -46,6 +46,6 @@ export const tryLoadUser = () => dispatch => {
       clearStoredUser();
     })
     .then(() => {
-      dispatch(authChecked);
+      dispatch(authChecked());
     });
 };
