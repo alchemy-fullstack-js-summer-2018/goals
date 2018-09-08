@@ -1,12 +1,15 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { tryLoadUser } from '../auth/actions';
 import { getCheckedAuth } from '../auth/reducers';
+import PrivateRoute from './PrivateRoute';
 import Header from './Header';
 import Home from './Home';
 import Auth from '../auth/Auth';
+import Goals from '../goals/Goals';
+import Goal from '../goals/Goal';
 
 class App extends PureComponent {
   static propTypes = {
@@ -30,6 +33,9 @@ class App extends PureComponent {
             <Switch>
               <Route exact path="/" component={Home}/>
               <Route path="/auth" component={Auth}/>
+              <PrivateRoute exact path="/goals" component={Goals}/>
+              <PrivateRoute path="/goals/:id" component={Goal}/>
+              <Redirect to="/auth" component={Auth}/>
             </Switch>
             }
           </main>

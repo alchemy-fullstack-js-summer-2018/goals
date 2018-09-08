@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import Error from './Error';
+import { getUser } from '../auth/reducers';
+import { logout } from '../auth/actions';
 
 class Header extends Component {
   static propTypes = {
@@ -15,10 +18,10 @@ class Header extends Component {
         <h1>Goals</h1>
         <nav>
           <Link to="/">Home</Link>
-          <Link to="/me/goals">My Goals</Link>
+          <Link to="/goals">My Goals</Link>
           {user
-            ? <Link to="/" onClick={this.handleLogout}>Logout</Link>
-            : <Link to="/auth">Login</Link>
+            ? <Link to="/auth/signin" onClick={() => logout()}>Logout</Link>
+            : <Link to="/auth/signin">Login</Link>
           }
         </nav>
         {user && <span>Welcome {user.name}!</span>}
@@ -28,4 +31,7 @@ class Header extends Component {
   }
 }
  
-export default Header;
+export default connect(
+  state => ({ user: getUser(state) }),
+  { logout }
+)(Header);
