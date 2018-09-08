@@ -25,7 +25,7 @@ class GoalDetail extends PureComponent {
 
     return (
       <article>
-        <h3>{goal.name} the {goal.type}</h3>
+        <h3>{goal.name}</h3>
         <Switch>
           <Route path={`${url}/paragraph`} render={() => {
             return <ParagraphView options={goal.favoriteOptions}/>;

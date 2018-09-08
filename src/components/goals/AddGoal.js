@@ -1,31 +1,45 @@
 import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import FormControl from '../shared/FormControl';
+import { addGoal } from '../goals/actions';
 
 class AddGoal extends PureComponent {
 
+  state = {
+    name: '',
+    description: ''
+  };
+
+  static propTypes = {
+    addGoal: PropTypes.func
+  };
+
+  handleChange = ({ target }) => {
+    this.setState({ [target.name]: target.value });
+  };
+
+  handleAdd = event => {
+    event.preventDefault();
+    const { addGoal } = this.props;
+    addGoal(this.state);
+    this.setState({ name: '', description: '' });
+  };
+
   render() {
+    const { name, description } = this.state;
 
     return (
       <section>
         <h2> Add a New Goal</h2>
-        <form>
-          <FormControl label="Name">
-            <input name="name"/>
+        <form onSubmit={this.handleAdd}>
+          <FormControl label="name">
+            <input name="name" value={name} onChange={this.handleChange}/>
           </FormControl>
-
-          <FormControl>
-            <select>
-              <option>Personal</option>
-              <option>Professional</option>
-              <option>Squad</option>
-              <option>For Eternity</option>
-            </select>
+          <FormControl label="description">
+            <input name="description" value={description} onChange=
+              {this.handleChange}/>
           </FormControl>
-
-          <FormControl label="options">
-            <input type="checkbox"/>
-          </FormControl>
-
           <button>Add</button>
         </form>
       </section>
@@ -33,4 +47,7 @@ class AddGoal extends PureComponent {
   }
 }
 
-export default AddGoal;
+export default connect(
+  null,
+  { addGoal }
+)(AddGoal);
