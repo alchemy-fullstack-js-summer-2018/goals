@@ -2,7 +2,7 @@ import {
   goals,
   GOALS_LOAD,
   GOALS_ADD,
-  GOALS_UPDATE
+  GOAL_TOGGLE
 } from './reducers';
 
 describe('Goals reducers', () => {
@@ -45,7 +45,7 @@ describe('Goals reducers', () => {
     const updated = { _id: 2, name: 'Learn', description: 'Read about new tech', completed: true };
 
     const state = goals([goal1, goal2, goal3], {
-      type: GOALS_UPDATE,
+      type: GOAL_TOGGLE,
       payload: updated
     });
 

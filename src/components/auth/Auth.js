@@ -12,7 +12,7 @@ class Auth extends PureComponent {
     signin: PropTypes.func.isRequired,
     signup: PropTypes.func.isRequired,
     location: PropTypes.object
-  }
+  };
 
   render() {
     const { user, signin, signup, location } = this.props;

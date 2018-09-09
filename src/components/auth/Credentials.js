@@ -26,7 +26,7 @@ export default class Credentials extends PureComponent {
       // nothing to do except catch error
       // so runtime doesn't think unhandled
       .catch(() => {});
-  }
+  };
 
   render() {
     const { action, allowName = false } = this.props;

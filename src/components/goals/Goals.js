@@ -11,7 +11,7 @@ export class Goals extends Component {
 
   state = {
     editing: false
-  }
+  };
   
   static propTypes = {
     loadGoals: PropTypes.func.isRequired,
@@ -49,6 +49,7 @@ export class Goals extends Component {
         }
         {goals &&
           <ul>
+            <p>(Click a goal to mark complete)</p>
             {goals.map(goal => (
               <Goal
                 key={goal._id}

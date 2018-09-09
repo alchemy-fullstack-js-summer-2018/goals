@@ -2,7 +2,7 @@
 
 export const GOALS_LOAD = 'GOALS_LOAD';
 export const GOALS_ADD = 'GOALS_ADD';
-export const GOALS_UPDATE = 'GOALS_UPDATE';
+export const GOAL_TOGGLE = 'GOAL_TOGGLE';
 export const LOGOUT = 'LOGOUT';
 
 export const getGoals = state => state.goals;
@@ -13,7 +13,7 @@ export function goals(state = [], { type, payload }) {
       return payload;
     case GOALS_ADD:
       return [...state, payload];
-    case GOALS_UPDATE:
+    case GOAL_TOGGLE:
       return state.map(goal => goal._id === payload._id ? payload : goal);
     case LOGOUT:
       return [];

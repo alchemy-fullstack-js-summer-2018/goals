@@ -7,7 +7,7 @@ class GoalForm extends PureComponent {
   state = {
     name: '',
     description: ''
-  }
+  };
 
   static propTypes = {
     submit: PropTypes.func.isRequired,
@@ -27,7 +27,7 @@ class GoalForm extends PureComponent {
 
   handleChange = ({ target }) => {
     this.setState({ [target.name]: target.value });
-  }
+  };
 
   render() {
     const { name, description } = this.state;

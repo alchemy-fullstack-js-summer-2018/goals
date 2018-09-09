@@ -1,21 +1,21 @@
 jest.mock('../../services/api', () => ({
-  loadAllGoals: jest.fn(),
+  getGoals: jest.fn(),
   addGoal: jest.fn(),
 }));
 
-import { load, add } from './actions';
-import { GOALS_LOAD, GOALS_ADD, GOALS_UPDATE } from './reducers';
-import { loadAllGoals } from '../../services/api';
+import { loadGoals } from './actions';
+import { GOALS_LOAD } from './reducers';
+import { getGoals } from '../../services/api';
 
 describe('Goals action creators', () => {
 
   it('Loads goals', () => {
     const promise = Promise.resolve();
-    loadAllGoals.mockReturnValueOnce(promise);
+    getGoals.mockReturnValueOnce(promise);
 
-    const { type } = load();
+    const { type } = loadGoals();
     expect(type).toBe(GOALS_LOAD);
-    expect(loadAllGoals.mock.calls.length).toBe(1);
+    expect(getGoals.mock.calls.length).toBe(1);
   });
 
 });
