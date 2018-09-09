@@ -30,7 +30,6 @@ class App extends PureComponent {
       <Router>
         <div>
           <Header/>
-          <h1>app.js</h1>
           <main className={styles.app}>
             { checkedAuth && 
             <Switch>
