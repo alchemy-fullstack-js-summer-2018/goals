@@ -8,7 +8,7 @@ describe('User reducer', () => {
   });
 
   it('Loads a user', () => {
-    const data = { name: 'KG', email: 'kg@me.com', password: 'abc' }
+    const data = { name: 'KG', email: 'kg@me.com', password: 'abc' };
     const state = user(null, { type: USER_AUTH, payload: data });
     expect(state).toEqual(data);
   });

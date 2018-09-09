@@ -8,7 +8,7 @@ class Home extends PureComponent {
 
   static propTypes = {
     user: PropTypes.object
-  }
+  };
 
   render() {
     const { user } = this.props;

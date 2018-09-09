@@ -9,11 +9,11 @@ class Header extends PureComponent {
   static propTypes = {
     user: PropTypes.object,
     logout: PropTypes.func.isRequired
-  }
+  };
 
   handleLogout = () => {
     this.props.logout();
-  }
+  };
 
   render() {
     const { user } = this.props;
