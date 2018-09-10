@@ -26,7 +26,7 @@ class Header extends Component {
             : <Link to="/auth/signin">Login</Link>
           }
         </nav>
-        {user && <span>Welcome {user.name}!</span>}
+        {user && <span>Welcome {user.user}!</span>}
         <Error/>
       </header>
     );
