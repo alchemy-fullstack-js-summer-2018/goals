@@ -1,5 +1,5 @@
 import { GOALS_LOAD, GOAL_LOAD } from './reducers';
-import { getAllGoals, getGoal } from '../../services/api';
+import { getAllGoals, getGoals } from '../../services/api';
 import { getGoalList, getGoalById } from './reducers';
 
 export const loadGoals = () => (dispatch, getState) => {
@@ -15,11 +15,11 @@ export const loadGoals = () => (dispatch, getState) => {
 
 export const loadGoal = id => (dispatch, getState) => { 
   const goal = getGoalById(getState(), id);
-  if(goal && goal.favoriteToys) return;
+  if(goal) return;
   
   dispatch({
     type: GOAL_LOAD,
-    payload: getGoal(id)
+    payload: getGoals(id)
   });
 };
 

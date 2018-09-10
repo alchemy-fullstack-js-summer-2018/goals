@@ -7,10 +7,10 @@ export const LOAD_END = 'LOAD_END';
 export const ERROR = 'ERROR';
 
 export const getGoalsById = state => state.goalsById;
-export const getPetList = state => state.goalList;
+export const getGoalList = state => state.goalList;
 export const getGoalById = (state, id) => getGoalsById(state)[id];
 
-export const getGoal = state => state.goal;
+export const getGoals = state => state.goal;
 
 export function goalsById(state = {}, { type, payload }) {
   switch(type) {

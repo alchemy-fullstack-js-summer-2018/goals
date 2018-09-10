@@ -5,38 +5,39 @@ import PropTypes from 'prop-types';
 
 class Home extends PureComponent {
   state = {
-    subject: 'exercise',
-    goalList: ['running, swimming']
+    goal: 'exercise',
+    completed: false,
+    // author: user._id
   };
 
   handleChange = ({ target }) => {
-    const { subject, value } = target;
-    this.setState({ [subject]: value });
+    const { goal, value } = target;
+    this.setState({ [goal]: value });
   }
 
   render() {
-    const { subject, goalList } = this.state;
+    const { goal, completed } = this.state;
 
     return (
       <section>
         <p>
-          subject: <input name="subject" value={subject} onChange={this.handleChange}/>
+          goal: <input name="goal" value={goal} onChange={this.handleChange}/>
         </p>
         <p>
-          goalList: <input name="goalList" value={goalList} onChange={this.handleChange}/>
+          completed: <input name="completed" value={completed} onChange={this.handleChange}/>
         </p>
 
-        <ChildComponent name={subject}/>
+        <ChildComponent name={goal}/>
 
         <WithRouterDisplay>
-          <span>{subject}</span>
+          <span>{goal}</span>
         </WithRouterDisplay>
 
         <Tabs>
           <TabList>
-            <Tab>Subject 1</Tab>
-            <Tab>Subject 2</Tab>
-            <Tab>Subject 3</Tab>
+            <Tab>Goal 1</Tab>
+            <Tab>Goal 2</Tab>
+            <Tab>Goal 3</Tab>
           </TabList>
 
           <TabPanel>
@@ -64,7 +65,7 @@ class Display extends PureComponent {
 
   render() {
     const { children, location } = this.props;
-    console.log(children);
+    // console.log(children);
     return (
       <div>
         <h3>Display Component</h3>
@@ -79,15 +80,15 @@ const WithRouterDisplay = withRouter(Display);
 
 class ChildComponent extends PureComponent {
   static propTypes = {
-    subject: PropTypes.string
+    goal: PropTypes.string
   };
 
   render() {
-    const { subject } = this.props;
+    const { goal } = this.props;
     console.log('ChildComponent render()');
     return (
       <p>
-        Subject: {subject}
+        Goal: {goal}
       </p>
     );
   }
