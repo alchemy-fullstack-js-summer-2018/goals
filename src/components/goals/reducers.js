@@ -1,8 +1,8 @@
 import { LOGOUT } from '../auth/reducers';
 
 export const GOALS_LOAD = 'GOALS_LOAD';
-export const GOAL_ADD = 'GOAL_ADD';
 export const GOAL_LOAD = 'GOAL_LOAD';
+export const GOAL_ADD = 'GOAL_ADD';
 export const GOAL_UPDATE = 'GOAL_UPDATE';
 export const LOAD_START = 'LOAD_START';
 export const LOAD_END = 'LOAD_END';

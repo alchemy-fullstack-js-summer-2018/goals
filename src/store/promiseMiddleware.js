@@ -13,12 +13,10 @@ export default ({ dispatch }) => next => action => {
       result => {
         dispatch({ type: LOAD_END });
 
-        dispatch({
+        return dispatch({
           type,
           payload: result
         });
-
-        return result;
       },
       err => {
         dispatch({ type: LOAD_END });

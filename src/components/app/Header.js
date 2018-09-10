@@ -18,7 +18,9 @@ class Header extends Component {
         <h1>Goals</h1>
         <nav>
           <Link to="/">Home</Link>
+          &nbsp;
           <Link to="/goals">My Goals</Link>
+          &nbsp;
           {user
             ? <Link to="/auth/signin" onClick={() => logout()}>Logout</Link>
             : <Link to="/auth/signin">Login</Link>

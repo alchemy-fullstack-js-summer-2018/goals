@@ -10,6 +10,11 @@ class Error extends PureComponent {
     clearError: PropTypes.func.isRequired
   };
 
+  componentDidUpdate() {
+    if(!this.props.error) return;
+    setTimeout(this.props.clearError, 5000);
+  }
+
   render() {
     const { error } = this.props;
     if(!error) return null;
