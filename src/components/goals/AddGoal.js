@@ -8,7 +8,6 @@ class AddGoal extends PureComponent {
 
   state = {
     name: '',
-    description: ''
   };
 
   static propTypes = {
@@ -23,11 +22,11 @@ class AddGoal extends PureComponent {
     event.preventDefault();
     const { addGoal } = this.props;
     addGoal(this.state);
-    this.setState({ name: '', description: '' });
+    this.setState({ name: '' });
   };
 
   render() {
-    const { name, description } = this.state;
+    const { name } = this.state;
 
     return (
       <section>
@@ -35,10 +34,6 @@ class AddGoal extends PureComponent {
         <form onSubmit={this.handleAdd}>
           <FormControl label="name">
             <input name="name" value={name} onChange={this.handleChange}/>
-          </FormControl>
-          <FormControl label="description">
-            <input name="description" value={description} onChange=
-              {this.handleChange}/>
           </FormControl>
           <button>Add</button>
         </form>

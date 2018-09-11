@@ -33,7 +33,6 @@ class GoalDetail extends PureComponent {
           <Route path={`${url}/list`} render={() => {
             return <ListView options={goal.favoriteOptions}/>;
           }}/>
-
           <Redirect to={`${url}/list`}/>
         </Switch>
       </article>
