@@ -2,17 +2,16 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-import PrivateRoute from './PrivateRoute';
 import { connect } from 'react-redux';
 import { tryLoadUser } from '../auth/actions';
 import { getCheckedAuth } from '../auth/reducers';
-import Header from './Header';
 import Home from './Home';
+import Header from './Header';
 import Auth from '../auth/Auth';
-import GoalList from '../goals/GoalList';
-// import GoalDetail from '../goals/GoalDetail';
+import Goals from '../goals/Goals';
 import Users from '../users/Users';
-// import AddGoal from '../goals/AddGoal';
+import PrivateRoute from './PrivateRoute';
+import AddGoal from '../goals/AddGoal';
 import styles from './App.css';
 
 class App extends PureComponent {
@@ -39,12 +38,11 @@ class App extends PureComponent {
               <Route exact path="/" component={Home}/>
               <Route path="/auth" component={Auth}/>
               <PrivateRoute exact path="/users" component={Users}/>
-              <PrivateRoute exact path="/goals" component={GoalList}/>
+              <PrivateRoute exact path="/goals" component={Goals}/>
 
-              {/* <PrivateRoute path="/goals/new" component={AddGoal}/>
-              <PrivateRoute path="/goals/:id" component={GoalDetail}/> */}
-              
+              <PrivateRoute path="/goals/new" component={AddGoal}/>
               <Redirect to="/"/>
+              
             </Switch>
             }
           </main>

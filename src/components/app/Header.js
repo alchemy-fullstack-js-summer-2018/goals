@@ -1,13 +1,13 @@
 
-import React, { Component, Fragment } from 'react';
+import React, { PureComponent, /*Fragment*/ } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getUser } from '../auth/reducers';
 import { logout } from '../auth/actions';
-import { Route, Link } from 'react-router-dom';
+import { /*Route*/ Link } from 'react-router-dom';
 import Error from './Error';
 
-class Header extends Component {
+class Header extends PureComponent {
 
   static propTypes = {
     user: PropTypes.object,
@@ -25,18 +25,22 @@ class Header extends Component {
       <header>
         <h1>Goal Tracker</h1>
         <nav>
-          <Link to="/">Home</Link>
-          &nbsp;
-          <Link to="/goals">Goals</Link>
-          &nbsp;
+          <h1><Link to="/">Home</Link></h1>
+          <ul>
+            <li>
+              <Link to="/goals">My Goals</Link>
+            </li>            
+            <li>
+              <Link to="/users">Other User Goals</Link>
+            </li>            
+          </ul>
           {
             user
               ? <Link to="/" onClick={this.handleLogout}>Logout</Link>
               : <Link to="/auth">Login</Link>
           }
 
-          &nbsp;
-          <Route path="/goals/:id" render={({ match: { url } }) => {
+          {/* <Route path="/goals/:id" render={({ match: { url } }) => {
             return (
               <Fragment>
                 &bsp;
@@ -45,9 +49,9 @@ class Header extends Component {
                 <Link to={`${url}/list`}>list view</Link>
               </Fragment>            
             );
-          }}/>
+          }}/> */}
         </nav>
-        { user && <span>Welcome {user.name}!</span> }
+        { user && <span>Welcome, {user.name}!</span> }
         <Error/>
       </header>
     );
