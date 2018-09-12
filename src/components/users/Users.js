@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { getUsersGoals } from './user-reducers';
 import { loadUsersGoals } from './user-actions';
 import User from './User';
-import styles from './Users.css';
 
 class Users extends PureComponent {
   
@@ -20,7 +19,7 @@ class Users extends PureComponent {
   render() {
     const { users } = this.props;
     return (
-      <div className={styles.users}>
+      <div>
         <section className="users-header">
           <h3> Other Users Goals:</h3>
         </section>
