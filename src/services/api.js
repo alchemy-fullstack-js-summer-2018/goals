@@ -1,11 +1,11 @@
 import { get, post } from './request';
 
 const URL = '/api';
-const GOALS_URL = `${URL}/goals`;
+const GOALS_URL = `${URL}/me/goals`;
 const AUTH_URL = `${URL}/auth`;
 
 export const getAllGoals = () => get(GOALS_URL);
-export const getGoals = () => get(`${GOALS_URL}`);
+export const getGoals = () => get(GOALS_URL);
 export const postGoal = data => post(`${GOALS_URL}`, data);
 export const toggleGoal = id => post(`${GOALS_URL}/${id}`);
 export const getUsersGoals = () => get(`${URL}/users`);
