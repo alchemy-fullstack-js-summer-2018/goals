@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { tryLoadUser } from '../auth/actions';
 import { getCheckedAuth } from '../auth/reducers';
 import Header from './Header';
-import Home from './Home';
+// import Home from './Home';
 import Auth from '../auth/Auth';
 import Goals from '../goals/Goals';
 import Goal from '../goals/Goal';
@@ -31,7 +31,7 @@ class App extends PureComponent {
           <main>
             {checkedAuth &&
             <Switch>
-              <Route exact path="/" component={Home}/>
+              <Route exact path="/" render={() => <h2>This is Home</h2>}/>
               <Route path="/auth" component={Auth}/>
               <PrivateRoute exact path="/goals" component={Goals}/>
               <PrivateRoute path="/goals/:id" component={Goal}/>

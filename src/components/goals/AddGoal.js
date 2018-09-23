@@ -32,7 +32,7 @@ class AddGoal extends PureComponent {
       <section>
         <h2>Add a new goal!</h2>
         <form onSubmit={this.handleAdd}>
-          <FormControl label="name">
+          <FormControl label="Goal" >
             <input name="goal" value={goal} onChange={this.handleChange}/>
           </FormControl>
           <button>Add</button>

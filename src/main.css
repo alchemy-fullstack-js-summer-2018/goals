@@ -1,3 +1,33 @@
 * {
   box-sizing: border-box;
 }
+body {
+  background: silver;
+}
+
+form > div {
+  display: flex;
+}
+
+input {
+  margin-left: 10px;
+  margin-bottom: 3px;
+  display: flex;
+
+}
+button {
+  margin-top: 20px;
+  background-color: lightblue;
+  }
+
+label {
+  margin-top:4px;
+}  
+ li {
+   font-size: 15pt;
+   justify-content: space-between;
+ }
+
+ ol {
+
+ }

@@ -23,9 +23,11 @@ class Goal extends PureComponent {
       return (
         <li onClick={this.handleCompleted}>
           {goal.goal}
-          {goal.completed ? 
-            <span style={{ color: '#00FF00' }}> (Completed!)</span> :
-            <span style={{ color: '#FFFF00' }}> (In progress)</span>
+          {goal.completed 
+            ? 
+            <span style={{ color: '#229954', }}> (Completed!)</span> 
+            :
+            <span style={{ color: '#FFC300' }}> (In progress)</span>
           }
         </li>
       );
