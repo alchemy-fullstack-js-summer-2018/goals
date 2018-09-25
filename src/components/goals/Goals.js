@@ -24,9 +24,9 @@ class Goals extends PureComponent {
       <section>
         <h2>Goals</h2>
         <AddGoal/>
-        <ul>
+        <ol>
           {goals.map(goal => <Goal key={goal._id} goal={goal}/>)}
-        </ul>
+        </ol>
       </section>
     );
   }
